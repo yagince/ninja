@@ -1,6 +1,6 @@
 # Ninja
 
-TODO: Write a gem description
+the library behind the scenes
 
 ## Installation
 
@@ -10,7 +10,7 @@ Add this line to your application's Gemfile:
 
 And then execute:
 
-    $ bundle
+    $ bundle install
 
 Or install it yourself as:
 
@@ -18,7 +18,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Hash
+
+#### accessor 
+```ruby
+h = {hoge: 1, foo: 2}
+h.hoge # => 1
+h.foo # => 2
+```
 
 ## Contributing
 

@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Ninja::VERSION
   spec.authors       = ["yagince"]
   spec.email         = ["straitwalk@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{the library behind the scenes}
+  spec.summary       = %q{behind the scenes}
+  spec.homepage      = "https://github.com/yagince/ninja"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
