@@ -6,7 +6,7 @@ the library behind the scenes
 
 Add this line to your application's Gemfile:
 
-    gem 'ninja'
+    gem 'ninja', github: "myfoot/ninja"
 
 And then execute:
 
@@ -14,7 +14,8 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install ninja
+    $ gem install specific_install
+    $ gem specific_install -l 'git://github.com/myfoot/ninja.git'
 
 ## Usage
 
