@@ -18,13 +18,30 @@ Or install it yourself as:
 
 ## Usage
 
-### Hash
+### Ninja::Hash
 
-#### accessor 
+#### Usage
+
 ```ruby
-h = {hoge: 1, foo: 2}
+require 'ninja/hash'
+
+h = Ninja::Hash.new(hoge: 1, foo: 2)
 h.hoge # => 1
 h.foo # => 2
+```
+
+#### Other
+
+```ruby
+require 'ninja/hash'
+
+h = {hoge: 1, foo: 2}.to_ninja_hash
+h.hoge # => 1
+h.foo # => 2
+
+h_ninja = {hoge: 1, foo: 2}.ninja
+h_ninja.hoge # => 1
+h_ninja.foo # => 2
 ```
 
 ## Contributing
