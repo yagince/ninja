@@ -1,23 +1,25 @@
-class Ninja::Hash < Hash
-  def initialize hash
-    self.replace hash
-    hash.keys.each{|key|
+module Ninja
+  class Hash < Hash
+    def initialize hash
+      self.replace hash
+      hash.keys.each{|key|
+        define(key)
+      }
+    end
+
+    def []=(key, value)
+      super(key, value)
       define(key)
-    }
-  end
+    end
 
-  def []=(key, value)
-    super(key, value)
-    define(key)
-  end
+    def method_missing(name, *args)
+      self[name] || self[name.to_s]
+    end
 
-  def method_missing(name, *args)
-    self[name] || self[name.to_s]
-  end
-
-  private
-  def define key
-    define_singleton_method(key) { self[key] || self[key.to_s] }
+    private
+    def define key
+      define_singleton_method(key) { self[key] || self[key.to_s] }
+    end
   end
 end
 
