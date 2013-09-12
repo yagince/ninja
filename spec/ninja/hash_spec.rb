@@ -38,6 +38,24 @@ describe Ninja::Hash do
   it "別インスタンスには影響しない" do
     expect(Ninja::Hash.new(hoge: 1).method_defined?(:a)).to be_false
   end
+
+  describe "#get" do
+    context "キーが存在する場合" do
+      it { expect(subject.get(:a)).to eq(1) }
+      it { expect(subject.get('a')).to eq(1) }
+    end
+
+    context "キーが存在しない場合" do
+      it { expect(subject.get(:hoge)).to be_nil }
+
+      context "ブロックを渡した場合" do
+        it "ブロックの実行結果が返る" do
+          expect(subject.get(:hoge){ 1 + 1 }).to eq(2)
+          expect(subject.get("hoge"){ 1 + 1 }).to eq(2)
+        end
+      end
+    end
+  end
 end
 
 describe Hash do
