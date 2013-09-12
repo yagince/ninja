@@ -3,7 +3,7 @@ require 'spec_helper'
 require 'ninja/hash'
 
 describe Ninja::Hash do
-  subject{ Ninja::Hash.new(a:1, "z" => 100) }
+  subject{ Ninja::Hash.new(a:1, "z" => 100, h: {a: 1, b: 2}) }
 
   context "指定したキーが存在する場合" do 
     it "プロパティのようにキーを指定できる" do
@@ -21,12 +21,18 @@ describe Ninja::Hash do
     it "hashと同じように振る舞う" do
       subject[:foo] = 200
       subject[:bar] = 300
-      expect(subject.keys).to eq([:a, "z", :foo, :bar])
+      expect(subject.keys).to eq([:a, "z", :h, :foo, :bar])
     end
   end
 
   context "指定したキーが存在しない場合" do
     it { expect(subject.c).to be_nil }
+  end
+
+  context "valueがHashの場合" do
+    it "valueもninja" do
+      expect(subject.h.a).to eq(1)
+    end
   end
 
   it "別インスタンスには影響しない" do

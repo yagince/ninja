@@ -18,7 +18,10 @@ module Ninja
 
     private
     def define key
-      define_singleton_method(key) { self[key] || self[key.to_s] }
+      define_singleton_method(key) {
+        value = (self[key] || self[key.to_s])
+        value.is_a?(::Hash) ? Ninja::Hash.new(value) : value
+      }
     end
   end
 end
