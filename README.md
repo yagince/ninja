@@ -21,28 +21,28 @@ Or install it yourself as:
 
 ### Ninja::Hash
 
-#### Usage
-
 ```ruby
 require 'ninja/hash'
 
 h = Ninja::Hash.new(hoge: 1, foo: 2)
 h.hoge # => 1
-h.foo # => 2
-```
-
-#### Other
-
-```ruby
-require 'ninja/hash'
+h.foo  # => 2
+h.piyo # => nil
 
 h = {hoge: 1, foo: 2}.to_ninja_hash
 h.hoge # => 1
-h.foo # => 2
+h.foo  # => 2
 
 h_ninja = {hoge: 1, foo: 2}.ninja
 h_ninja.hoge # => 1
-h_ninja.foo # => 2
+h_ninja.foo  # => 2
+
+h = {hoge: 1, foo: { bar: 2 }}.ninja
+h.foo.bar # => 2
+
+# default value
+h.get(:piyo) { 1 + 2 } # => 3
+h.get(:piyo)           # => nil
 ```
 
 ## Contributing
