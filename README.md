@@ -8,16 +8,11 @@ the library behind the scenes
 
 Add this line to your application's Gemfile:
 
-    gem 'ninja', github: "myfoot/ninja"
+    gem 'ninja-collection'
 
 And then execute:
 
     $ bundle install
-
-Or install it yourself as:
-
-    $ gem install specific_install
-    $ gem specific_install -l 'git://github.com/myfoot/ninja.git'
 
 ## Usage
 
