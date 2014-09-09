@@ -54,7 +54,7 @@ describe Ninja::Hash do
   end
 
   it "別インスタンスには影響しない" do
-    expect(Ninja::Hash.new(hoge: 1).respond_to?(:a)).to be_false
+    expect(Ninja::Hash.new(hoge: 1).respond_to?(:a)).to eq(false)
   end
 
   describe "#get" do
