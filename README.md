@@ -31,6 +31,9 @@ h.hoge # => 1
 h.foo  # => 2
 h.piyo # => nil
 
+h.bar = 100
+h.bar # => 100
+
 h = {hoge: 1, foo: 2}.to_ninja_hash
 h.hoge # => 1
 h.foo  # => 2
