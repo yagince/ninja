@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/yagince/ninja.svg?branch=master)](https://travis-ci.org/yagince/ninja)
+
 # Ninja
 
 the library behind the scenes
