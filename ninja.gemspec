@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ninja/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "ninja"
+  spec.name          = "ninja-collection"
   spec.version       = Ninja::VERSION
   spec.authors       = ["yagince"]
   spec.email         = ["straitwalk@gmail.com"]
