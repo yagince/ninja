@@ -19,6 +19,10 @@ module Ninja
     end
 
     def method_missing(name, *args)
+      if md = name.to_s.match(/(.+)=\z/)
+        define(md[1])
+        self.send(name, *args)
+      end
       nil
     end
 
@@ -31,7 +35,15 @@ module Ninja
                 else
                   (self[key] || self[key.to_s])
                 end
-        value.is_a?(::Hash) ? Ninja::Hash.new(value) : value
+        if value.is_a?(::Hash)
+          value = Ninja::Hash.new(value)
+          self[key] = value
+        end
+        value
+      }
+
+      define_singleton_method("#{key}=") {|value|
+        self[key] = value
       }
     end
   end

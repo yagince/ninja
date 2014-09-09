@@ -12,6 +12,19 @@ describe Ninja::Hash do
     end
   end
 
+  context "指定したキーが存在しない場合" do
+    it { expect(subject.c).to be_nil }
+
+    it "プロパティのように代入できる" do
+      hash = subject
+      value = 100
+      hash.c = value
+      expect(hash.c).to eq(value)
+      expect(hash["c"]).to eq(value)
+      expect(hash[:c]).to be_nil
+    end
+  end
+
   context "エントリーを追加した場合" do
     it "プロパティのようにアクセスできる" do
       subject[:b] = 100
@@ -25,13 +38,18 @@ describe Ninja::Hash do
     end
   end
 
-  context "指定したキーが存在しない場合" do
-    it { expect(subject.c).to be_nil }
-  end
-
   context "valueがHashの場合" do
     it "valueもninja" do
       expect(subject.h.a).to eq(1)
+    end
+
+    context "valueを破壊的に変更した場合" do
+      it "元のオブジェクトも変更される" do
+        hash = subject
+        x = hash.h
+        x[:test] = 1000
+        expect(hash.h.test).to eq(1000)
+      end
     end
   end
 
